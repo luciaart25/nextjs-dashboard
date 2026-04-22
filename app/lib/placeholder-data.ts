@@ -1,3 +1,5 @@
+import type { Invoice } from './definitions';
+
 // This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
 // https://nextjs.org/learn/dashboard-app/fetching-data
 const users = [
@@ -48,80 +50,93 @@ const customers = [
   },
 ];
 
-const invoices = [
+const invoices: Invoice[] = [
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a01',
     customer_id: customers[0].id,
     amount: 15795,
     status: 'pending',
     date: '2022-12-06',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a02',
     customer_id: customers[1].id,
     amount: 20348,
     status: 'pending',
     date: '2022-11-14',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a03',
     customer_id: customers[4].id,
     amount: 3040,
     status: 'paid',
     date: '2022-10-29',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a04',
     customer_id: customers[3].id,
     amount: 44800,
     status: 'paid',
     date: '2023-09-10',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a05',
     customer_id: customers[5].id,
     amount: 34577,
     status: 'pending',
     date: '2023-08-05',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a06',
     customer_id: customers[2].id,
     amount: 54246,
     status: 'pending',
     date: '2023-07-16',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a07',
     customer_id: customers[0].id,
     amount: 666,
     status: 'pending',
     date: '2023-06-27',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a08',
     customer_id: customers[3].id,
     amount: 32545,
     status: 'paid',
     date: '2023-06-09',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a09',
     customer_id: customers[4].id,
     amount: 1250,
     status: 'paid',
     date: '2023-06-17',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a10',
     customer_id: customers[5].id,
     amount: 8546,
     status: 'paid',
     date: '2023-06-07',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a11',
     customer_id: customers[1].id,
     amount: 500,
     status: 'paid',
     date: '2023-08-19',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a12',
     customer_id: customers[5].id,
     amount: 8945,
     status: 'paid',
     date: '2023-06-03',
   },
   {
+    id: '3af5a4dd-7753-48ad-95f1-d8b9d5f88a13',
     customer_id: customers[2].id,
     amount: 1000,
     status: 'paid',
