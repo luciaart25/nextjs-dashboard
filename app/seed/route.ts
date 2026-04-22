@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import type { TransactionSql } from 'postgres';
 import { invoices, customers, revenue, users } from '../lib/placeholder-data';
-import { getDatabaseInfo, getErrorMessage, getSql } from '../lib/db';
+import { getErrorMessage, getSql } from '../lib/db';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -129,24 +129,17 @@ async function seedRevenue(sql: SqlTransaction) {
 export async function GET() {
   try {
     const sql = getSql('direct');
-    const seeded = await sql.begin(async (transaction) => ({
-      users: await seedUsers(transaction),
-      customers: await seedCustomers(transaction),
-      invoices: await seedInvoices(transaction),
-      revenue: await seedRevenue(transaction),
-    }));
-
-    return Response.json({
-      ok: true,
-      message: 'Database seeded successfully.',
-      database: getDatabaseInfo('direct'),
-      seeded,
+    await sql.begin(async (transaction) => {
+      await seedUsers(transaction);
+      await seedCustomers(transaction);
+      await seedInvoices(transaction);
+      await seedRevenue(transaction);
     });
+
+    return Response.json({ message: 'Database seeded successfully' });
   } catch (error) {
     return Response.json(
       {
-        ok: false,
-        message: 'Failed to seed database.',
         error: getErrorMessage(error),
       },
       { status: 500 },
